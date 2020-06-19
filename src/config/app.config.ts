@@ -14,6 +14,10 @@ interface AppConfig {
     password: string;
     database: string;
   };
+  smitio: {
+    username: string;
+    password: string;
+  };
 }
 
 export const getConfig = (): AppConfig => {
@@ -26,6 +30,10 @@ export const getConfig = (): AppConfig => {
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
+    },
+    smitio: {
+      username: process.env.SMITIO_USERNAME,
+      password: process.env.SMITIO_PASSWORD,
     },
   };
 };
@@ -47,7 +55,7 @@ export const getTypeOrmConfig = (): TypeOrmModuleOptions => {
     ssl: isProduction(),
     synchronize: false,
     entities: [join(__dirname, '/../**/*.entity.{js,ts}')],
-    migrations: [join(__dirname, '..', '..', 'migrations', '*{.ts,.js}')],
+    migrations: [join(__dirname, '..', '..', 'migrations', '*.{js,ts}')],
     cli: {
       migrationsDir: 'migrations',
     },

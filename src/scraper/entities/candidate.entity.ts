@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, Column, Unique } from 'typeorm';
 
 @Entity()
-@Unique(['userId'])
+@Unique(['messageId'])
 export class CandidateEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -13,11 +13,8 @@ export class CandidateEntity extends BaseEntity {
   updatedAt: Date;
 
   @Column()
-  userId: number;
+  messageId: number;
 
   @Column()
   position: string;
-
-  @Column()
-  sessionState: string;
 }

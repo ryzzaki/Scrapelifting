@@ -1,8 +1,8 @@
 {
   "name": "scraper",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Web Scraper for Applifting's Automated Recruitment Process",
+  "author": "Cuong Nguyen <cuong.nugi@gmail.com>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -34,6 +34,7 @@
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "pg": "^8.2.1",
+    "puppeteer": "^4.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
@@ -47,6 +48,7 @@
     "@types/express": "^4.17.3",
     "@types/jest": "25.1.4",
     "@types/node": "^13.9.1",
+    "@types/puppeteer": "^3.0.0",
     "@types/supertest": "^2.0.8",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
