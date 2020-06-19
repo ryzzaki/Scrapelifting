@@ -1,6 +1,6 @@
 import { EntityRepository, Repository, Any } from 'typeorm';
 import { CandidateEntity } from '../entities/candidate.entity';
-import { FetchResult } from '../fetchResult.interface';
+import { FetchResult } from '../interfaces/fetchResult.interface';
 
 @EntityRepository(CandidateEntity)
 export class CandidateRepository extends Repository<CandidateEntity> {

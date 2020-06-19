@@ -1,32 +1,30 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ScraperService } from './scraper.service';
-import { getRepositoryToken } from '@nestjs/typeorm';
-import { CandidateEntity } from './entities/candidate.entity';
+import { SmitioScraperService } from './smitio/smitio-scraper.service';
 
-const mockRepository = () => {
+const mockSmitioScraper = () => {
   return {
-    save: jest.fn(),
+    scrape: jest.fn(),
   };
 };
 
 describe('ScraperService', () => {
   let service: ScraperService;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  let repository: any;
+  let smitioScraperService: any;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         ScraperService,
         {
-          provide: getRepositoryToken(CandidateEntity),
-          useFactory: mockRepository,
+          provide: SmitioScraperService,
+          useFactory: mockSmitioScraper,
         },
       ],
     }).compile();
-
     service = module.get<ScraperService>(ScraperService);
-    repository = module.get(getRepositoryToken(CandidateEntity));
+    smitioScraperService = module.get<SmitioScraperService>(SmitioScraperService);
   });
 
   it('should be defined', () => {
