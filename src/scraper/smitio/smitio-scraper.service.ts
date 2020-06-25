@@ -192,6 +192,7 @@ export class SmitioScraperService implements ScraperJob {
           motivationalLetter = candidate.candidateMessageData?.shift().message;
         }
       }
+
       const parsedCandidate: WebhookData = {
         date: new Date(),
         candidateID: candidate.messageId,
@@ -200,7 +201,7 @@ export class SmitioScraperService implements ScraperJob {
         position: candidate.position,
         why: motivationalLetter,
         phone: '+420123456789',
-        email: 'email@email.cz',
+        email: 'no-smitio-email@is-available.io',
         details: candidate.urlDetail,
         linkedin,
         internalPositionName: candidate.position,
