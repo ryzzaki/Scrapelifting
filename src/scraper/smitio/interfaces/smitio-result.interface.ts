@@ -1,6 +1,8 @@
 export interface EphemeralCandidateData {
   messageId: number;
+  offerId: number;
   articleIndex: number;
+  urlDetail: string;
   name: string;
   position: string;
   candidateMessageData?: CandidateMessageHistory[];

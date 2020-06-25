@@ -1,3 +1,4 @@
+/* eslint-disable no-process-env */
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { join } from 'path';
 import * as dotenv from 'dotenv';
@@ -73,5 +74,5 @@ export const getTypeOrmConfig = (): TypeOrmModuleOptions => {
 
 export const getWebhookUrl = () => {
   const { botBackend } = getConfig();
-  return isProduction() ? botBackend.webhookUrl : `http://localhost:${botBackend.port}`;
+  return isProduction() ? botBackend.webhookUrl : `http://localhost:${botBackend.port}/webhook`;
 };
