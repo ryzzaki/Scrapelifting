@@ -18,6 +18,10 @@ interface AppConfig {
     username: string;
     password: string;
   };
+  botBackend: {
+    port: number;
+    webhookUrl: string;
+  };
 }
 
 export const getConfig = (): AppConfig => {
@@ -34,6 +38,10 @@ export const getConfig = (): AppConfig => {
     smitio: {
       username: process.env.SMITIO_USERNAME,
       password: process.env.SMITIO_PASSWORD,
+    },
+    botBackend: {
+      port: Number.parseInt(process.env.BOT_BACKEND_PORT),
+      webhookUrl: process.env.BOT_BACKEND_WEBHOOK,
     },
   };
 };
@@ -61,4 +69,9 @@ export const getTypeOrmConfig = (): TypeOrmModuleOptions => {
     },
     migrationsTransactionMode: 'all',
   };
+};
+
+export const getWebhookUrl = () => {
+  const { botBackend } = getConfig();
+  isProduction() ? botBackend.webhookUrl : `http://localhost:${botBackend.port}`;
 };
