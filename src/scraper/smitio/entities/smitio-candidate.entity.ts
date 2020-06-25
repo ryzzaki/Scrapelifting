@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDat
 
 @Entity()
 @Unique(['messageId'])
-export class CandidateEntity extends BaseEntity {
+export class SmitioCandidateEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

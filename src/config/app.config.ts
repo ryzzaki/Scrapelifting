@@ -73,5 +73,5 @@ export const getTypeOrmConfig = (): TypeOrmModuleOptions => {
 
 export const getWebhookUrl = () => {
   const { botBackend } = getConfig();
-  isProduction() ? botBackend.webhookUrl : `http://localhost:${botBackend.port}`;
+  return isProduction() ? botBackend.webhookUrl : `http://localhost:${botBackend.port}`;
 };

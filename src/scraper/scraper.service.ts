@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { SmitioScraperService } from './smitio/smitio-scraper.service';
+import { isProduction } from '../config/app.config';
 import * as puppeteer from 'puppeteer';
 
 @Injectable()
@@ -12,7 +13,7 @@ export class ScraperService {
   @Cron(CronExpression.EVERY_5_MINUTES, { name: 'fetchNewCandidates' })
   async fetchNewCandidates() {
     this.logger.verbose('Fetching new candidates...');
-    const browser = await puppeteer.launch({ headless: false, slowMo: 50 });
+    const browser = await puppeteer.launch({ headless: isProduction(), slowMo: 50 });
 
     try {
       // Call all jobs here
