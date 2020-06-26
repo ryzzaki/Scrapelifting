@@ -142,7 +142,7 @@ export class SmitioScraperService implements ScraperJob {
             },
           },
         });
-        // parse all the info: 1. find the CV, 2. find the linkedin, 3. find the motivational letter - process of elimination
+        // parse all the info: 1. find the CV, 2. find the linkedin, 3. find the motivation letter - process of elimination
         newId.candidateMessageData = scrapeResults.candidateChatHistoryMessages;
         await page.goto('https://smitio.com/en/company-/candidates', { waitUntil: 'load' });
       }
@@ -165,7 +165,7 @@ export class SmitioScraperService implements ScraperJob {
     for (const candidate of allCandidateData) {
       const cvFiles = [];
       let linkedin = '';
-      let motivationalLetter = 'No motivational letter was included :(';
+      let motivationLetter = '<<No motivation letter was included :(>>';
       if (candidate.candidateMessageData && candidate.candidateMessageData?.length !== 0) {
         // find all the information by the process of elimination
         candidate.candidateMessageData.forEach((messageBlob, index) => {
@@ -190,7 +190,7 @@ export class SmitioScraperService implements ScraperJob {
         });
 
         if (candidate.candidateMessageData?.length !== 0) {
-          motivationalLetter = candidate.candidateMessageData?.shift().message;
+          motivationLetter = candidate.candidateMessageData?.shift().message;
         }
       }
 
@@ -200,7 +200,7 @@ export class SmitioScraperService implements ScraperJob {
         offerID: candidate.offerId,
         name: candidate.name,
         position: candidate.position,
-        why: motivationalLetter,
+        why: motivationLetter,
         phone: '+420123456789',
         email: 'no-smitio-email@is-available.io',
         details: candidate.urlDetail,
@@ -209,7 +209,7 @@ export class SmitioScraperService implements ScraperJob {
         files: cvFiles,
         // eslint-disable-next-line @typescript-eslint/camelcase
         gdpr_accepted: false,
-        // source: 'SMITIO',
+        source: 'SMITIO',
       };
       allWebhookData.push(parsedCandidate);
     }

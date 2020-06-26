@@ -12,5 +12,5 @@ export interface WebhookData {
   internalPositionName: string;
   files: string[];
   gdpr_accepted: boolean;
-  // source: 'SMITIO' | 'STARTUPJOBS' | undefined;
+  source: 'SMITIO' | undefined;
 }
