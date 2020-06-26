@@ -188,6 +188,7 @@ export class SmitioScraperService implements ScraperJob {
             return;
           }
         });
+
         if (candidate.candidateMessageData?.length !== 0) {
           motivationalLetter = candidate.candidateMessageData?.shift().message;
         }
@@ -207,7 +208,7 @@ export class SmitioScraperService implements ScraperJob {
         internalPositionName: candidate.position,
         files: cvFiles,
         // eslint-disable-next-line @typescript-eslint/camelcase
-        gdpr_accepted: true,
+        gdpr_accepted: false,
         // source: 'SMITIO',
       };
       allWebhookData.push(parsedCandidate);
