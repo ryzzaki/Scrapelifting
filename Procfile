@@ -1,2 +1,2 @@
 release: yarn typeorm:setup && yarn db:migrate
-web: yarn build && yarn start:prod
+web: yarn install --production=false && yarn build && yarn start:prod
