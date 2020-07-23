@@ -61,7 +61,9 @@ export const getTypeOrmConfig = (): TypeOrmModuleOptions => {
     username: ormConfig.username,
     password: ormConfig.password,
     database: ormConfig.database,
-    ssl: isProduction(),
+    ssl: {
+      rejectUnauthorized: false,
+    },
     synchronize: false,
     entities: [join(__dirname, '/../**/*.entity.{js,ts}')],
     migrations: [join(__dirname, '..', '..', 'migrations', '*.{js,ts}')],
