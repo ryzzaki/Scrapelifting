@@ -75,7 +75,7 @@ export class SmitioScraperService implements ScraperJob {
           offerId: Number.parseInt(chatUrl[7]),
           urlDetail: chatUrl.join('/'),
           name: scrapeResult[i - 1].name,
-          position: scrapeResult[i - 1].position,
+          position: scrapeResult[i - 1].positions[0],
           articleIndex: i + 1,
         });
         messageIds.push(Number.parseInt(chatUrl[5]));
@@ -92,7 +92,9 @@ export class SmitioScraperService implements ScraperJob {
         listItem: '.catalogue_item.box',
         data: {
           name: '.catalogue_item-line--left .profile_content .profile_name',
-          position: '.ver-nine .catalogue_item-line--right .list_col:first-child a',
+          positions: {
+            listItem: '.ver-nine .catalogue_item-line--right .list_col:first-child a',
+          },
         },
       },
     });

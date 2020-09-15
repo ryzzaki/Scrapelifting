@@ -15,5 +15,5 @@ export interface CandidateMessageHistory {
 
 export interface GenericCandidate {
   name: string;
-  position: string;
+  positions: string[];
 }
