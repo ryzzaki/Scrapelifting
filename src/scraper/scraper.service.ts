@@ -16,7 +16,7 @@ export class ScraperService {
   async fetchNewCandidates(): Promise<void> {
     this.logger.verbose('Fetching new candidates...');
     let aggregatedData: WebhookData[] = [];
-    const browser = await puppeteer.launch({ headless: true, slowMo: 350, args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({ headless: true, slowMo: 100, args: ['--no-sandbox'] });
 
     try {
       // Call all jobs here
