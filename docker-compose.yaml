@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  postgres:
+    image: 'postgres:11.8-alpine'
+    environment:
+      POSTGRES_DB: scraper-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - '5432:5432'
+
+  backend-sb:
+    build:
+      dockerfile: Dockerfile.dev
+    env_file: .env.compose
+    ports:
+      - '3000:3001'
+    depends_on:
+      - postgres
