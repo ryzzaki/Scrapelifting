@@ -12,7 +12,7 @@ export class ScraperService {
 
   constructor(private readonly smitioScraperService: SmitioScraperService) {}
 
-  @Cron(CronExpression.EVERY_5_MINUTES, { name: 'fetchNewCandidates' })
+  @Cron(CronExpression.EVERY_10_MINUTES, { name: 'fetchNewCandidates' })
   async fetchNewCandidates(): Promise<void> {
     this.logger.verbose('Fetching new candidates...');
     let aggregatedData: WebhookData[] = [];
