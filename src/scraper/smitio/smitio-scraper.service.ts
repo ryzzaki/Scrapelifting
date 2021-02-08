@@ -5,6 +5,7 @@ import { WebhookData } from '../interfaces/webhook.interface';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SmitioCandidateRepository } from './repositories/smitio-candidate.repository';
 import { ScraperJob } from '../interfaces/scraper-job.interface';
+import { internalisedPositions } from './positions/positions';
 import * as puppeteer from 'puppeteer';
 import * as scraper from 'scrape-it';
 
@@ -201,7 +202,7 @@ export class SmitioScraperService implements ScraperJob {
         candidateID: candidate.messageId,
         offerID: candidate.offerId,
         name: candidate.name,
-        position: candidate.position,
+        position: internalisedPositions[candidate.position],
         why: motivationLetter,
         phone: '+420123456789',
         email: 'no-smitio-email@is-available.io',

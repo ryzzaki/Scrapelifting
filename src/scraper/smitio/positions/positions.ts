@@ -1,0 +1,22 @@
+export const internalisedPositions = {
+  // smitio position (key) : internal position (value)
+  '👨🏻‍💻👩‍💻Staň se naším QA testerem': '🧯 Staň se naším QA testerem',
+  '⚙️ DevOps': '⚙️ DevOps',
+  'Být markeťákem ve svobodné firmě - TO CHCEŠ! 🔝💛': 'Být markeťákem ve svobodné firmě - TO CHCEŠ! 🔝💛',
+  'DXH Marketing': 'DXH Marketing',
+  '🦾 Technical writer': '👨🏻‍💻 Technical writer',
+  '📱Flutter Developer': '📱Flutter Developer',
+  '🍏 iOS Developer': '🍏 iOS Developer',
+  '🚀 React Developer': '🚀 React Developer',
+  '🟢 Node.js Developer': '🟢 Node.js Developer',
+  '🤖 Android Developer': '🤖 Android Developer',
+  '📞 DXH Administrativní podpora': '📞 DXH Administrativní podpora',
+  'JAVA/KOTLIN vývojář': '☕️ Java/Kotlin Developer',
+  '📈 Technický a produktový analytik/analytička': '📈 Technický a produktový analytik/analytička',
+  '📝 Copywriter a redaktor s velkou mírou svobody': '📝 Copywriter a redaktor s velkou mírou svobody',
+  '🟡 Python Developer': '🟡 Python developer',
+  '🔗 DXH Node.js Developer pro DX Scanner': '🔗 DXH Node.js Developer pro DX Scanner',
+  '🌝 FullStack Developer': '🌝 FullStack Developer',
+  '🦸🦸‍♀️ Part-time posila pro BO': '🦸🦸‍♀️ Part-time posila pro BO',
+  'UX/UI Designer': '🙌 UX/UI designer/ka mobilních 📱 a webových 🖥 aplikací',
+};
